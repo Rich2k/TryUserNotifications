@@ -7,6 +7,7 @@
 //
 
 #import "StatusViewController.h"
+@import UserNotifications;
 
 @interface StatusViewController ()
 
@@ -14,16 +15,21 @@
 
 @implementation StatusViewController
 
+- (IBAction)onRemoveAllPendingNotificatinsAction:(UIButton *)sender {
+    
+    [[UNUserNotificationCenter currentNotificationCenter]
+     removeAllPendingNotificationRequests];
+}
+
+- (IBAction)onRemoveAllDeliveredNotificatinsAction:(UIButton *)sender {
+    
+    [[UNUserNotificationCenter currentNotificationCenter]
+     removeAllDeliveredNotifications];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

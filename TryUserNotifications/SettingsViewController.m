@@ -24,10 +24,13 @@
      requestAuthorizationWithOptions:UNAuthorizationOptionAlert|UNAuthorizationOptionSound|UNAuthorizationOptionBadge
      completionHandler:^(BOOL granted, NSError * _Nullable error) {
          
+         NSLog(@"Granted: %d, Error:%@", granted, error);
+         
          if (error) {
              [self showAlertWithError:error];
          }
-         
+        
+         [self getNotificaionSettings];
      }];
 
     
@@ -47,16 +50,36 @@
     
 }
 
+#pragma mark -
+
 - (IBAction)onRegisterAction:(UIButton *)sender {
     
     [self registerForNotifications];
 }
+
+- (IBAction)onOpenSettingsApp:(UIButton *)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]
+                                       options:@{}
+                             completionHandler:nil];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     [self getNotificaionSettings];
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+                                                      [self getNotificaionSettings];
+                                                  }];
+}
+
+- (void)viewDidUnload
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /*
@@ -101,18 +124,24 @@
                                                           setting:settings.carPlaySetting]];
     
     [self.stackView addArrangedSubview:[self createLabelWithTitle:@"alertStyle"
-                                                          setting:settings.alertStyle]];
+                                                          setting:settings.alertStyle
+                                                  withOptionNames:@[@"🔕", @"🔔", @"💭"]]];
     
 }
 
-- (UILabel*) createLabelWithTitle:(NSString*)title setting:(NSInteger)settingId
+- (UILabel*) createLabelWithTitle:(NSString*)title setting:(NSInteger)setting withOptionNames:(NSArray*)optionNames
 {
-    NSArray * settingNames = @[@"❓", @"👍", @"👎"];
-    
     UILabel * label = [[UILabel alloc] init];
-    label.text = [NSString stringWithFormat:@"%@:%@", title, settingNames[settingId]];
+    label.text = [NSString stringWithFormat:@"%@:%@", title, optionNames[setting]];
     label.textAlignment = NSTextAlignmentRight;
     return label;
+}
+
+- (UILabel*) createLabelWithTitle:(NSString*)title setting:(NSInteger)setting
+{
+    return [self createLabelWithTitle:title
+                              setting:setting
+                      withOptionNames:@[@"❓", @"⛔️", @"✅"]];
 }
 
 @end

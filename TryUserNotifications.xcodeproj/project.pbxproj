@@ -21,6 +21,8 @@
 		4931864E1D5605DD002AC11C /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931864D1D5605DD002AC11C /* NotificationService.m */; };
 		493186521D5605DD002AC11C /* ServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4931864A1D5605DD002AC11C /* ServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4931865A1D560B5C002AC11C /* UIViewController+Alerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 493186591D560B5C002AC11C /* UIViewController+Alerts.m */; };
+		4931865D1D562959002AC11C /* attachment-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4931865C1D562959002AC11C /* attachment-1.jpg */; };
+		4931865F1D562ADD002AC11C /* attachment-2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4931865E1D562ADD002AC11C /* attachment-2.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		4931864F1D5605DD002AC11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493186581D560B5C002AC11C /* UIViewController+Alerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alerts.h"; sourceTree = "<group>"; };
 		493186591D560B5C002AC11C /* UIViewController+Alerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alerts.m"; sourceTree = "<group>"; };
+		4931865C1D562959002AC11C /* attachment-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "attachment-1.jpg"; sourceTree = "<group>"; };
+		4931865E1D562ADD002AC11C /* attachment-2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "attachment-2.gif"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 		493185D51D55FE11002AC11C = {
 			isa = PBXGroup;
 			children = (
+				4931865B1D56294D002AC11C /* Attachments */,
 				493185E01D55FE11002AC11C /* TryUserNotifications */,
 				493185FD1D55FE11002AC11C /* TryUserNotificationsTests */,
 				4931864B1D5605DD002AC11C /* ServiceExtension */,
@@ -202,6 +207,15 @@
 				493186591D560B5C002AC11C /* UIViewController+Alerts.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		4931865B1D56294D002AC11C /* Attachments */ = {
+			isa = PBXGroup;
+			children = (
+				4931865C1D562959002AC11C /* attachment-1.jpg */,
+				4931865E1D562ADD002AC11C /* attachment-2.gif */,
+			);
+			path = Attachments;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,9 +330,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4931865D1D562959002AC11C /* attachment-1.jpg in Resources */,
 				493185F41D55FE11002AC11C /* LaunchScreen.storyboard in Resources */,
 				493185F11D55FE11002AC11C /* Assets.xcassets in Resources */,
 				493185EF1D55FE11002AC11C /* Main.storyboard in Resources */,
+				4931865F1D562ADD002AC11C /* attachment-2.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

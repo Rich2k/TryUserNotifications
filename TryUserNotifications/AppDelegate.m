@@ -7,12 +7,18 @@
 //
 
 #import "AppDelegate.h"
+@import UserNotifications;
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
 @implementation AppDelegate
+
+- (void) setupUserNotificationCenterDelegate {
+    // The delegate can only be set from an application
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+}
 
 - (void) selectDefaultTab {
     // temporary hack
@@ -22,6 +28,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [self setupUserNotificationCenterDelegate];
     [self selectDefaultTab];    
     
     return YES;
@@ -54,5 +61,27 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark -
+
+// The method will be called on the delegate only if the application is in the foreground.
+// If the method is not implemented or the handler is not called in a timely manner then the notification will not be presented.
+// The application can choose to have the notification presented as a sound, badge, alert and/or in the notification list.
+// This decision should be based on whether the information in the notification is otherwise visible to the user.
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+       willPresentNotification:(UNNotification *)notification
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
+ 
+    completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert);
+}
+
+// The method will be called on the delegate when the user responded to the notification by opening the application, dismissing the notification or choosing a UNNotificationAction.
+// The delegate must be set before the application returns from applicationDidFinishLaunching:.
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void(^)())completionHandler
+{
+ 
+    completionHandler();
+}
 
 @end
