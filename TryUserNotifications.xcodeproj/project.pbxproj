@@ -359,7 +359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TryUserNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.atkit.TryUserNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atkit.test-push";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -370,7 +370,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TryUserNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.atkit.TryUserNotifications;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atkit.test-push";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
