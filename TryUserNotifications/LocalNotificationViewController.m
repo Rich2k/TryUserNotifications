@@ -48,13 +48,14 @@
     notificationContent.title    = self.titleField.text;
     notificationContent.subtitle = self.subtitleField.text;
     notificationContent.body     = self.bodyField.text;
+    notificationContent.attachments = [self createSelectedMediaAttachment];
 //    notificationContent.badge    = 1;
-//    notificationContent.sound
+//    notificationContent.sound    = ??
 //    notificationContent.launchImageName = @"LaunchScreenFromNotification"; // ???
 //    notificationContent.threadIdentifier
 //    notificationContent.categoryIdentifier
-    notificationContent.attachments = [self createMediaAttachments];
 //    notificationContent.userInfo = @{@"tag": @1};
+
     
 //    UNLocationNotificationTrigger
 //    UNCalendarNotificationTrigger
@@ -77,40 +78,48 @@
              [self showAlertWithError:error];
          }
      }];
-    
-    
 }
 
-- (NSArray<UNNotificationAttachment*> *)createMediaAttachments
+- (NSArray<UNNotificationAttachment*> *)createSelectedMediaAttachment
 {
-    NSURL * fileUrl1 = [[NSBundle mainBundle] URLForResource:@"attachment-1"
-                                              withExtension:@"jpg"];
-    NSURL * fileUrl2 = [[NSBundle mainBundle] URLForResource:@"attachment-2"
-                                               withExtension:@"gif"];
-    
+    switch (self.mediaAttachmentSegmentControl.selectedSegmentIndex) {
+        case 0:/*None*/
+            return nil;
+
+        case 1:/*JPG*/
+            return [self createMediaAttachmentsWithId:@"attachment-1" ofType:@"jpg"];
+        
+        case 2:/*GIF*/
+            return [self createMediaAttachmentsWithId:@"attachment-2" ofType:@"gif"];
+ 
+        case 3:/*Video*/
+            return [self createMediaAttachmentsWithId:@"attachment-3" ofType:@"mp4"];
+        
+        case 4:/*Audio*/
+            return [self createMediaAttachmentsWithId:@"attachment-4" ofType:@"m4a"];
+            
+        default:
+            return nil;
+    }
+}
+
+- (NSArray<UNNotificationAttachment*> *)createMediaAttachmentsWithId:(NSString*)attachmentId
+                                                              ofType:(NSString*)type
+{
+    NSURL * attachmentURL = [[NSBundle mainBundle] URLForResource:attachmentId
+                                                    withExtension:type];
     NSError * error = nil;
-    UNNotificationAttachment *
-    notifcationAttachment1 = [UNNotificationAttachment
-                              attachmentWithIdentifier:@"attachment-1"
-                              URL:fileUrl1
-                              options:nil
-                              error:&error];
-
-    UNNotificationAttachment *
-    notifcationAttachment2 = [UNNotificationAttachment
-                              attachmentWithIdentifier:@"attachment-2"
-                              URL:fileUrl2
-                              options:nil
-                              error:&error];
-
+    UNNotificationAttachment * notifcationAttachment = [UNNotificationAttachment
+                                                        attachmentWithIdentifier:attachmentId
+                                                        URL:attachmentURL
+                                                        options:nil
+                                                        error:&error];
     if (error) {
         [self showAlertWithError:error];
     }
-    if (notifcationAttachment1 && notifcationAttachment2) {
-        return @[notifcationAttachment2, notifcationAttachment1];
+    if (notifcationAttachment) {
+        return @[notifcationAttachment];
     }
-    
-    
     return nil;
 }
 
