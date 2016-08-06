@@ -122,13 +122,6 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="KxS-FW-hAB"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="content-identifer-1" borderStyle="roundedRect" placeholder="Content Identifier" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3xa-JP-9S5">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="fZ0-of-Hoy"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Subtitle" borderStyle="roundedRect" placeholder="Subtitle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rrP-ep-y2T">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -184,10 +177,10 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="W7w-Xg-AQn">
                                         <segments>
                                             <segment title="Time Interval"/>
-                                            <segment title="Calendar"/>
+                                            <segment title="Calendar" enabled="NO"/>
                                         </segments>
                                     </segmentedControl>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="time / date" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i9h-Is-H5F">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5 seconds" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i9h-Is-H5F">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
@@ -200,12 +193,22 @@
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8f9-HR-DNQ">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="custom sound:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWC-bk-QB3">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="repeat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWC-bk-QB3">
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nU9-LO-3TP"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nU9-LO-3TP"/>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5ia-2A-VvB">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="custom sound:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykN-4n-dzk">
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j08-H5-Jwv"/>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="alO-uA-J35">
@@ -233,18 +236,15 @@
                             <constraint firstItem="nt0-LM-atD" firstAttribute="leading" secondItem="2vD-QN-5ul" secondAttribute="leading" id="JT9-lw-U36"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ce4-sy-GYx" secondAttribute="trailing" id="PJF-0v-5a6"/>
                             <constraint firstItem="ych-0K-Luo" firstAttribute="leading" secondItem="rrP-ep-y2T" secondAttribute="leading" id="RHM-Mt-2mn"/>
-                            <constraint firstItem="X80-aj-iRo" firstAttribute="top" secondItem="3xa-JP-9S5" secondAttribute="bottom" constant="8" id="Uvd-dJ-ENg"/>
-                            <constraint firstItem="3xa-JP-9S5" firstAttribute="top" secondItem="ych-0K-Luo" secondAttribute="bottom" constant="8" id="YHC-aS-9Av"/>
                             <constraint firstItem="rrP-ep-y2T" firstAttribute="leading" secondItem="Ce4-sy-GYx" secondAttribute="leading" id="ZhO-at-EqO"/>
-                            <constraint firstItem="3xa-JP-9S5" firstAttribute="leading" secondItem="ych-0K-Luo" secondAttribute="leading" id="aMz-Xx-FjX"/>
                             <constraint firstItem="ych-0K-Luo" firstAttribute="trailing" secondItem="rrP-ep-y2T" secondAttribute="trailing" id="aNV-sj-und"/>
                             <constraint firstItem="2vD-QN-5ul" firstAttribute="trailing" secondItem="X80-aj-iRo" secondAttribute="trailing" id="bNY-Li-oiD"/>
-                            <constraint firstItem="X80-aj-iRo" firstAttribute="leading" secondItem="3xa-JP-9S5" secondAttribute="leading" id="cFZ-yv-zt2"/>
                             <constraint firstItem="Anu-f8-p2F" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="hiu-VY-k8Q"/>
                             <constraint firstItem="nt0-LM-atD" firstAttribute="top" secondItem="2vD-QN-5ul" secondAttribute="bottom" constant="8" id="hwy-BH-biJ"/>
-                            <constraint firstItem="X80-aj-iRo" firstAttribute="trailing" secondItem="3xa-JP-9S5" secondAttribute="trailing" id="qnt-gX-J6o"/>
+                            <constraint firstItem="X80-aj-iRo" firstAttribute="leading" secondItem="ych-0K-Luo" secondAttribute="leading" id="pW1-TD-HXD"/>
+                            <constraint firstItem="X80-aj-iRo" firstAttribute="trailing" secondItem="ych-0K-Luo" secondAttribute="trailing" id="ppW-Af-LYT"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="Anu-f8-p2F" secondAttribute="bottom" constant="20" id="rGq-ou-oIh"/>
-                            <constraint firstItem="3xa-JP-9S5" firstAttribute="trailing" secondItem="ych-0K-Luo" secondAttribute="trailing" id="rQw-O9-k6J"/>
+                            <constraint firstItem="X80-aj-iRo" firstAttribute="top" secondItem="ych-0K-Luo" secondAttribute="bottom" constant="10" id="sLS-Mn-ii0"/>
                             <constraint firstItem="rrP-ep-y2T" firstAttribute="top" secondItem="Ce4-sy-GYx" secondAttribute="bottom" constant="8" id="uHl-7n-V2S"/>
                             <constraint firstItem="2vD-QN-5ul" firstAttribute="leading" secondItem="X80-aj-iRo" secondAttribute="leading" id="z6w-Vq-9S2"/>
                         </constraints>
@@ -255,10 +255,12 @@
                     <tabBarItem key="tabBarItem" title="Local Notifications" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="bodyField" destination="ych-0K-Luo" id="14d-6W-5Ju"/>
-                        <outlet property="identifierField" destination="3xa-JP-9S5" id="n5u-wD-Yxc"/>
                         <outlet property="mediaAttachmentSegmentControl" destination="eMv-3H-Bta" id="qxd-NU-PUJ"/>
+                        <outlet property="repeatSwitch" destination="nU9-LO-3TP" id="tmV-XH-m8k"/>
                         <outlet property="subtitleField" destination="rrP-ep-y2T" id="dL2-No-MNG"/>
                         <outlet property="titleField" destination="Ce4-sy-GYx" id="TWN-6I-Mdk"/>
+                        <outlet property="triggerParameterField" destination="i9h-Is-H5F" id="8C9-Li-bJ0"/>
+                        <outlet property="triggerSegmentControl" destination="W7w-Xg-AQn" id="pHA-Et-ibY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>

@@ -16,9 +16,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *subtitleField;
 @property (weak, nonatomic) IBOutlet UITextField *bodyField;
-@property (weak, nonatomic) IBOutlet UITextField *identifierField;
+@property (weak, nonatomic) IBOutlet UITextField *triggerParameterField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *mediaAttachmentSegmentControl;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *triggerSegmentControl;
 
+@property (weak, nonatomic) IBOutlet UISwitch * repeatSwitch;
 
 @end
 
@@ -29,11 +31,6 @@
         [self showAlertWithMessage:@"Please set Body"];
         return NO;
     }
-    if (self.identifierField.text.length == 0) {
-        [self showAlertWithMessage:@"Please set Content Identifier"];
-        return NO;
-    }
-    
     return YES;
 }
 
@@ -56,14 +53,20 @@
 //    notificationContent.categoryIdentifier
 //    notificationContent.userInfo = @{@"tag": @1};
 
+    BOOL shouldRepeat = self.repeatSwitch.on;
+    NSTimeInterval triggerTimeInterval = [self.triggerParameterField.text doubleValue];
+    if (triggerTimeInterval == 0) {
+        [self showAlertWithMessage:@"Time interval should be greater then 0"];
+        return;
+    }
     
 //    UNLocationNotificationTrigger
 //    UNCalendarNotificationTrigger
     UNTimeIntervalNotificationTrigger *
-    notificationTrigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5
-                                                                             repeats:NO];
+    notificationTrigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:triggerTimeInterval
+                                                                             repeats:shouldRepeat];
     
-    NSString * contentIdentifier = self.identifierField.text;
+    NSString * contentIdentifier = @"content-identifier-1";
     
     UNNotificationRequest *
     notificationRequest = [UNNotificationRequest requestWithIdentifier:contentIdentifier
@@ -126,6 +129,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    [self setupTimeIntervalPicker];
 }
 
 #pragma mark
@@ -141,5 +146,13 @@
         [recognizer.view endEditing:YES];
     }
 }
+
+//- (void) setupTimeIntervalPicker {
+//    UIDatePicker *
+//    datePicker = [UIDatePicker new];
+//    datePicker.datePickerMode = UIDatePickerModeCountDownTimer;
+//    
+//    self.triggerParameterField.inputView = datePicker;
+//}
 
 @end
