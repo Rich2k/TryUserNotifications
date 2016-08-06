@@ -26,10 +26,12 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     
     [self setupUserNotificationCenterDelegate];
-    [self selectDefaultTab];    
+    [self selectDefaultTab];
+    
+    // Enable Remote Notificaitons
+    [application registerForRemoteNotifications];
     
     return YES;
 }
@@ -61,6 +63,31 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - Notifications
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken
+{
+    NSLog(@"Remote Notification Device Token: %@", deviceToken);
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(nonnull NSError *)error
+{
+    NSLog(@"Did Fail To Register for Remote Notifications: %@", error);
+}
+
+// Not called, as we have fetchCompletionHandler version
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+//{
+//}
+
+// For Silent Pushes
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
+{
+    NSLog(@"Received Push : %@", userInfo);
+    
+    completionHandler(UIBackgroundFetchResultNoData);
+}
+
 #pragma mark -
 
 // The method will be called on the delegate only if the application is in the foreground.
@@ -71,6 +98,8 @@
        willPresentNotification:(UNNotification *)notification
          withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
  
+    NSLog(@"Notification: %@", notification.request.content.userInfo);
+    
     completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert);
 }
 
