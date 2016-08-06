@@ -44,18 +44,33 @@
                                     <action selector="onRegisterAction:" destination="CeW-7r-Zca" eventType="touchUpInside" id="2BO-QX-454"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gmk-Zf-fhT">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbV-vs-frw">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vBE-wT-tlh" firstAttribute="centerX" secondItem="pCN-Q1-gDt" secondAttribute="centerX" id="3hQ-Kl-m3f"/>
+                            <constraint firstItem="vwd-kP-R0M" firstAttribute="top" secondItem="gmk-Zf-fhT" secondAttribute="bottom" constant="8" id="PDF-qA-dY6"/>
                             <constraint firstItem="vBE-wT-tlh" firstAttribute="top" secondItem="vp9-Kl-Zd0" secondAttribute="bottom" constant="30" id="ZI8-YX-AJY"/>
+                            <constraint firstItem="gmk-Zf-fhT" firstAttribute="trailing" secondItem="pCN-Q1-gDt" secondAttribute="trailingMargin" id="dSL-1l-GWj"/>
+                            <constraint firstItem="gmk-Zf-fhT" firstAttribute="leading" secondItem="pCN-Q1-gDt" secondAttribute="leadingMargin" id="zc7-eV-SND"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="first" id="XYl-2r-n10"/>
+                    <connections>
+                        <outlet property="stackView" destination="gmk-Zf-fhT" id="zdC-2j-rG6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cuk-BA-PiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785" y="600"/>
+            <point key="canvasLocation" x="784.79999999999995" y="599.55022488755628"/>
         </scene>
         <!--Local Notifications-->
         <scene sceneID="wg7-f3-ORb">

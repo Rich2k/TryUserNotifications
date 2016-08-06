@@ -20,6 +20,7 @@
 		493186451D560589002AC11C /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493186441D560589002AC11C /* UserNotificationsUI.framework */; };
 		4931864E1D5605DD002AC11C /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931864D1D5605DD002AC11C /* NotificationService.m */; };
 		493186521D5605DD002AC11C /* ServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4931864A1D5605DD002AC11C /* ServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4931865A1D560B5C002AC11C /* UIViewController+Alerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 493186591D560B5C002AC11C /* UIViewController+Alerts.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		4931864C1D5605DD002AC11C /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
 		4931864D1D5605DD002AC11C /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
 		4931864F1D5605DD002AC11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493186581D560B5C002AC11C /* UIViewController+Alerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Alerts.h"; sourceTree = "<group>"; };
+		493186591D560B5C002AC11C /* UIViewController+Alerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Alerts.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +133,7 @@
 		493185E01D55FE11002AC11C /* TryUserNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				493186571D560B3B002AC11C /* Categories */,
 				493186091D560078002AC11C /* Controllers */,
 				493185E41D55FE11002AC11C /* AppDelegate.h */,
 				493185E51D55FE11002AC11C /* AppDelegate.m */,
@@ -189,6 +193,15 @@
 				4931864F1D5605DD002AC11C /* Info.plist */,
 			);
 			path = ServiceExtension;
+			sourceTree = "<group>";
+		};
+		493186571D560B3B002AC11C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				493186581D560B5C002AC11C /* UIViewController+Alerts.h */,
+				493186591D560B5C002AC11C /* UIViewController+Alerts.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +346,7 @@
 				493185EC1D55FE11002AC11C /* LocalNotificationViewController.m in Sources */,
 				493185E61D55FE11002AC11C /* AppDelegate.m in Sources */,
 				4931860C1D560098002AC11C /* SettingsViewController.m in Sources */,
+				4931865A1D560B5C002AC11C /* UIViewController+Alerts.m in Sources */,
 				493185E91D55FE11002AC11C /* StatusViewController.m in Sources */,
 				493185E31D55FE11002AC11C /* main.m in Sources */,
 			);

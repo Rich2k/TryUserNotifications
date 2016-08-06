@@ -7,6 +7,8 @@
 //
 
 #import "LocalNotificationViewController.h"
+#import "UIViewController+Alerts.h"
+
 @import UserNotifications;
 
 @interface LocalNotificationViewController ()
@@ -22,6 +24,7 @@
 
 - (IBAction)onScheduleAction:(UIButton *)sender {
     
+    [self showAlertWithMessage:@"hello" title:@"test"];
 }
 
 - (void)viewDidLoad {
