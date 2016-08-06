@@ -46,8 +46,8 @@
     notificationContent.subtitle = self.subtitleField.text;
     notificationContent.body     = self.bodyField.text;
     notificationContent.attachments = [self createSelectedMediaAttachment];
-//    notificationContent.badge    = 1;
-//    notificationContent.sound    = ??
+    notificationContent.sound    = [UNNotificationSound defaultSound];
+//    notificationContent.badge    = @1;
 //    notificationContent.launchImageName = @"LaunchScreenFromNotification"; // ???
 //    notificationContent.threadIdentifier
 //    notificationContent.categoryIdentifier
