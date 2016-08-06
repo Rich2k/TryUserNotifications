@@ -90,6 +90,7 @@
 		493186641D5636D4002AC11C /* attachment-3.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "attachment-3.mp4"; sourceTree = "<group>"; };
 		493186681D563908002AC11C /* attachment-4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "attachment-4.m4a"; sourceTree = "<group>"; };
 		4931866A1D563A5E002AC11C /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		4931866C1D5653C6002AC11C /* TryUserNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TryUserNotifications.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 		493185E01D55FE11002AC11C /* TryUserNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				4931866C1D5653C6002AC11C /* TryUserNotifications.entitlements */,
 				493186571D560B3B002AC11C /* Categories */,
 				493186091D560078002AC11C /* Controllers */,
 				493185E41D55FE11002AC11C /* AppDelegate.h */,
@@ -298,6 +300,11 @@
 						DevelopmentTeam = 4RCVCZ57WB;
 						DevelopmentTeamName = "Andrey Tokarev";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					493185F91D55FE11002AC11C = {
 						CreatedOnToolsVersion = 8.0;
@@ -521,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TryUserNotifications/TryUserNotifications.entitlements;
 				INFOPLIST_FILE = TryUserNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.atkit.test-push";
@@ -532,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TryUserNotifications/TryUserNotifications.entitlements;
 				INFOPLIST_FILE = TryUserNotifications/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.atkit.test-push";
