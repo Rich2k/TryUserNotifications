@@ -16,6 +16,10 @@
 		493185F41D55FE11002AC11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493185F21D55FE11002AC11C /* LaunchScreen.storyboard */; };
 		493185FF1D55FE11002AC11C /* TryUserNotificationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185FE1D55FE11002AC11C /* TryUserNotificationsTests.m */; };
 		4931860C1D560098002AC11C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931860B1D560098002AC11C /* SettingsViewController.m */; };
+		493186431D560584002AC11C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493186421D560584002AC11C /* UserNotifications.framework */; };
+		493186451D560589002AC11C /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493186441D560589002AC11C /* UserNotificationsUI.framework */; };
+		4931864E1D5605DD002AC11C /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931864D1D5605DD002AC11C /* NotificationService.m */; };
+		493186521D5605DD002AC11C /* ServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4931864A1D5605DD002AC11C /* ServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,7 +30,28 @@
 			remoteGlobalIDString = 493185DD1D55FE11002AC11C;
 			remoteInfo = TryUserNotifications;
 		};
+		493186501D5605DD002AC11C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 493185D61D55FE11002AC11C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 493186491D5605DD002AC11C;
+			remoteInfo = ServiceExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		493186561D5605DD002AC11C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				493186521D5605DD002AC11C /* ServiceExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		493185DE1D55FE11002AC11C /* TryUserNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TryUserNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +71,12 @@
 		493186001D55FE11002AC11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4931860A1D560098002AC11C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4931860B1D560098002AC11C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		493186421D560584002AC11C /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		493186441D560589002AC11C /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		4931864A1D5605DD002AC11C /* ServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4931864C1D5605DD002AC11C /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		4931864D1D5605DD002AC11C /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		4931864F1D5605DD002AC11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,10 +84,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493186451D560589002AC11C /* UserNotificationsUI.framework in Frameworks */,
+				493186431D560584002AC11C /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		493185F71D55FE11002AC11C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		493186471D5605DD002AC11C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,7 +111,9 @@
 			children = (
 				493185E01D55FE11002AC11C /* TryUserNotifications */,
 				493185FD1D55FE11002AC11C /* TryUserNotificationsTests */,
+				4931864B1D5605DD002AC11C /* ServiceExtension */,
 				493185DF1D55FE11002AC11C /* Products */,
+				493186411D560584002AC11C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +122,7 @@
 			children = (
 				493185DE1D55FE11002AC11C /* TryUserNotifications.app */,
 				493185FA1D55FE11002AC11C /* TryUserNotificationsTests.xctest */,
+				4931864A1D5605DD002AC11C /* ServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +172,25 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		493186411D560584002AC11C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				493186441D560589002AC11C /* UserNotificationsUI.framework */,
+				493186421D560584002AC11C /* UserNotifications.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4931864B1D5605DD002AC11C /* ServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4931864C1D5605DD002AC11C /* NotificationService.h */,
+				4931864D1D5605DD002AC11C /* NotificationService.m */,
+				4931864F1D5605DD002AC11C /* Info.plist */,
+			);
+			path = ServiceExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,10 +201,12 @@
 				493185DA1D55FE11002AC11C /* Sources */,
 				493185DB1D55FE11002AC11C /* Frameworks */,
 				493185DC1D55FE11002AC11C /* Resources */,
+				493186561D5605DD002AC11C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				493186511D5605DD002AC11C /* PBXTargetDependency */,
 			);
 			name = TryUserNotifications;
 			productName = TryUserNotifications;
@@ -167,6 +231,23 @@
 			productReference = 493185FA1D55FE11002AC11C /* TryUserNotificationsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		493186491D5605DD002AC11C /* ServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 493186531D5605DD002AC11C /* Build configuration list for PBXNativeTarget "ServiceExtension" */;
+			buildPhases = (
+				493186461D5605DD002AC11C /* Sources */,
+				493186471D5605DD002AC11C /* Frameworks */,
+				493186481D5605DD002AC11C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ServiceExtension;
+			productName = ServiceExtension;
+			productReference = 4931864A1D5605DD002AC11C /* ServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -189,6 +270,12 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 493185DD1D55FE11002AC11C;
 					};
+					493186491D5605DD002AC11C = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4RCVCZ57WB;
+						DevelopmentTeamName = "Andrey Tokarev";
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 493185D91D55FE11002AC11C /* Build configuration list for PBXProject "TryUserNotifications" */;
@@ -206,6 +293,7 @@
 			targets = (
 				493185DD1D55FE11002AC11C /* TryUserNotifications */,
 				493185F91D55FE11002AC11C /* TryUserNotificationsTests */,
+				493186491D5605DD002AC11C /* ServiceExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -222,6 +310,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		493185F81D55FE11002AC11C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		493186481D5605DD002AC11C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -251,6 +346,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		493186461D5605DD002AC11C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4931864E1D5605DD002AC11C /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -258,6 +361,11 @@
 			isa = PBXTargetDependency;
 			target = 493185DD1D55FE11002AC11C /* TryUserNotifications */;
 			targetProxy = 493185FB1D55FE11002AC11C /* PBXContainerItemProxy */;
+		};
+		493186511D5605DD002AC11C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 493186491D5605DD002AC11C /* ServiceExtension */;
+			targetProxy = 493186501D5605DD002AC11C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -413,6 +521,28 @@
 			};
 			name = Release;
 		};
+		493186541D5605DD002AC11C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ServiceExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atkit.test-push.ServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		493186551D5605DD002AC11C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ServiceExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atkit.test-push.ServiceExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -438,6 +568,14 @@
 			buildConfigurations = (
 				493186071D55FE11002AC11C /* Debug */,
 				493186081D55FE11002AC11C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		493186531D5605DD002AC11C /* Build configuration list for PBXNativeTarget "ServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				493186541D5605DD002AC11C /* Debug */,
+				493186551D5605DD002AC11C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
