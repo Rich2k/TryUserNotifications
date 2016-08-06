@@ -6,13 +6,13 @@
 //  Copyright © 2016 Andrey Tokarev. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "StatusViewController.h"
 
-@interface FirstViewController ()
+@interface StatusViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation StatusViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

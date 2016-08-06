@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		493185E31D55FE11002AC11C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185E21D55FE11002AC11C /* main.m */; };
 		493185E61D55FE11002AC11C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185E51D55FE11002AC11C /* AppDelegate.m */; };
-		493185E91D55FE11002AC11C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185E81D55FE11002AC11C /* FirstViewController.m */; };
-		493185EC1D55FE11002AC11C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185EB1D55FE11002AC11C /* SecondViewController.m */; };
+		493185E91D55FE11002AC11C /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185E81D55FE11002AC11C /* StatusViewController.m */; };
+		493185EC1D55FE11002AC11C /* LocalNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185EB1D55FE11002AC11C /* LocalNotificationViewController.m */; };
 		493185EF1D55FE11002AC11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493185ED1D55FE11002AC11C /* Main.storyboard */; };
 		493185F11D55FE11002AC11C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493185F01D55FE11002AC11C /* Assets.xcassets */; };
 		493185F41D55FE11002AC11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493185F21D55FE11002AC11C /* LaunchScreen.storyboard */; };
 		493185FF1D55FE11002AC11C /* TryUserNotificationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185FE1D55FE11002AC11C /* TryUserNotificationsTests.m */; };
+		4931860C1D560098002AC11C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931860B1D560098002AC11C /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,10 +33,10 @@
 		493185E21D55FE11002AC11C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		493185E41D55FE11002AC11C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		493185E51D55FE11002AC11C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		493185E71D55FE11002AC11C /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		493185E81D55FE11002AC11C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		493185EA1D55FE11002AC11C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		493185EB1D55FE11002AC11C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		493185E71D55FE11002AC11C /* StatusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusViewController.h; sourceTree = "<group>"; };
+		493185E81D55FE11002AC11C /* StatusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusViewController.m; sourceTree = "<group>"; };
+		493185EA1D55FE11002AC11C /* LocalNotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalNotificationViewController.h; sourceTree = "<group>"; };
+		493185EB1D55FE11002AC11C /* LocalNotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationViewController.m; sourceTree = "<group>"; };
 		493185EE1D55FE11002AC11C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		493185F01D55FE11002AC11C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		493185F31D55FE11002AC11C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +44,8 @@
 		493185FA1D55FE11002AC11C /* TryUserNotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TryUserNotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		493185FE1D55FE11002AC11C /* TryUserNotificationsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryUserNotificationsTests.m; sourceTree = "<group>"; };
 		493186001D55FE11002AC11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4931860A1D560098002AC11C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		4931860B1D560098002AC11C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,15 +87,12 @@
 		493185E01D55FE11002AC11C /* TryUserNotifications */ = {
 			isa = PBXGroup;
 			children = (
+				493186091D560078002AC11C /* Controllers */,
 				493185E41D55FE11002AC11C /* AppDelegate.h */,
 				493185E51D55FE11002AC11C /* AppDelegate.m */,
-				493185E71D55FE11002AC11C /* FirstViewController.h */,
-				493185E81D55FE11002AC11C /* FirstViewController.m */,
-				493185EA1D55FE11002AC11C /* SecondViewController.h */,
-				493185EB1D55FE11002AC11C /* SecondViewController.m */,
 				493185ED1D55FE11002AC11C /* Main.storyboard */,
-				493185F01D55FE11002AC11C /* Assets.xcassets */,
 				493185F21D55FE11002AC11C /* LaunchScreen.storyboard */,
+				493185F01D55FE11002AC11C /* Assets.xcassets */,
 				493185F51D55FE11002AC11C /* Info.plist */,
 				493185E11D55FE11002AC11C /* Supporting Files */,
 			);
@@ -114,6 +114,19 @@
 				493186001D55FE11002AC11C /* Info.plist */,
 			);
 			path = TryUserNotificationsTests;
+			sourceTree = "<group>";
+		};
+		493186091D560078002AC11C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				493185E71D55FE11002AC11C /* StatusViewController.h */,
+				493185E81D55FE11002AC11C /* StatusViewController.m */,
+				493185EA1D55FE11002AC11C /* LocalNotificationViewController.h */,
+				493185EB1D55FE11002AC11C /* LocalNotificationViewController.m */,
+				4931860A1D560098002AC11C /* SettingsViewController.h */,
+				4931860B1D560098002AC11C /* SettingsViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,9 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493185EC1D55FE11002AC11C /* SecondViewController.m in Sources */,
+				493185EC1D55FE11002AC11C /* LocalNotificationViewController.m in Sources */,
 				493185E61D55FE11002AC11C /* AppDelegate.m in Sources */,
-				493185E91D55FE11002AC11C /* FirstViewController.m in Sources */,
+				4931860C1D560098002AC11C /* SettingsViewController.m in Sources */,
+				493185E91D55FE11002AC11C /* StatusViewController.m in Sources */,
 				493185E31D55FE11002AC11C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

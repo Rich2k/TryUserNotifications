@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  SettingsViewController.h
 //  TryUserNotifications
 //
 //  Created by Andrew on 06/08/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
-
+@interface SettingsViewController : UIViewController
 
 @end
-

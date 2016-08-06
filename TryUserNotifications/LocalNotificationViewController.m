@@ -6,13 +6,13 @@
 //  Copyright © 2016 Andrey Tokarev. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "LocalNotificationViewController.h"
 
-@interface SecondViewController ()
+@interface LocalNotificationViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation LocalNotificationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
