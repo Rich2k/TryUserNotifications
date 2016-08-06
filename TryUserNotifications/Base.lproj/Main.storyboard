@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,7 +37,19 @@
                     <view key="view" contentMode="scaleToFill" id="pCN-Q1-gDt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBE-wT-tlh">
+                                <state key="normal" title="Register for Notifications"/>
+                                <connections>
+                                    <action selector="onRegisterAction:" destination="CeW-7r-Zca" eventType="touchUpInside" id="2BO-QX-454"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vBE-wT-tlh" firstAttribute="centerX" secondItem="pCN-Q1-gDt" secondAttribute="centerX" id="3hQ-Kl-m3f"/>
+                            <constraint firstItem="vBE-wT-tlh" firstAttribute="top" secondItem="vp9-Kl-Zd0" secondAttribute="bottom" constant="30" id="ZI8-YX-AJY"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="first" id="XYl-2r-n10"/>
                 </viewController>
@@ -55,13 +68,51 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Body" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ych-0K-Luo">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subtitle" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rrP-ep-y2T">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-sy-GYx">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VkH-ou-kvr">
+                                <state key="normal" title="Schedule"/>
+                                <connections>
+                                    <action selector="onScheduleAction:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="VJK-e3-Bne"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VkH-ou-kvr" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="6y9-1s-kN9"/>
+                            <constraint firstItem="rrP-ep-y2T" firstAttribute="trailing" secondItem="Ce4-sy-GYx" secondAttribute="trailing" id="7Ec-fK-CoM"/>
+                            <constraint firstItem="Ce4-sy-GYx" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="9M9-63-ohl"/>
+                            <constraint firstItem="Ce4-sy-GYx" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="30" id="G9P-YF-x40"/>
+                            <constraint firstItem="ych-0K-Luo" firstAttribute="top" secondItem="rrP-ep-y2T" secondAttribute="bottom" constant="8" id="J3N-wo-aMv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ce4-sy-GYx" secondAttribute="trailing" id="PJF-0v-5a6"/>
+                            <constraint firstItem="ych-0K-Luo" firstAttribute="leading" secondItem="rrP-ep-y2T" secondAttribute="leading" id="RHM-Mt-2mn"/>
+                            <constraint firstItem="rrP-ep-y2T" firstAttribute="leading" secondItem="Ce4-sy-GYx" secondAttribute="leading" id="ZhO-at-EqO"/>
+                            <constraint firstItem="ych-0K-Luo" firstAttribute="trailing" secondItem="rrP-ep-y2T" secondAttribute="trailing" id="aNV-sj-und"/>
+                            <constraint firstItem="rrP-ep-y2T" firstAttribute="top" secondItem="Ce4-sy-GYx" secondAttribute="bottom" constant="8" id="uHl-7n-V2S"/>
+                            <constraint firstItem="VkH-ou-kvr" firstAttribute="top" secondItem="ych-0K-Luo" secondAttribute="bottom" constant="8" id="uSN-Vu-yU5"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Local Notifications" image="second" id="cPa-gy-q4n"/>
+                    <connections>
+                        <outlet property="bodyField" destination="ych-0K-Luo" id="14d-6W-5Ju"/>
+                        <outlet property="subtitleField" destination="rrP-ep-y2T" id="dL2-No-MNG"/>
+                        <outlet property="titleField" destination="Ce4-sy-GYx" id="TWN-6I-Mdk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="785" y="-41"/>
+            <point key="canvasLocation" x="784.79999999999995" y="-41.829085457271368"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

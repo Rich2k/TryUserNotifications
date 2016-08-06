@@ -14,10 +14,16 @@
 
 @implementation AppDelegate
 
-
+- (void) selectDefaultTab {
+    // temporary hack
+    ((UITabBarController*)self.window.rootViewController).selectedIndex = 1;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self selectDefaultTab];    
+    
     return YES;
 }
 

@@ -14,6 +14,10 @@
 
 @implementation SettingsViewController
 
+- (IBAction)onRegisterAction:(UIButton *)sender {
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

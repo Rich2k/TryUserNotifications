@@ -7,12 +7,22 @@
 //
 
 #import "LocalNotificationViewController.h"
+@import UserNotifications;
 
 @interface LocalNotificationViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextField *subtitleField;
+@property (weak, nonatomic) IBOutlet UITextField *bodyField;
+
 
 @end
 
 @implementation LocalNotificationViewController
+
+- (IBAction)onScheduleAction:(UIButton *)sender {
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
