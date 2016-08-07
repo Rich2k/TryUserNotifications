@@ -2,8 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "second.pdf",
-      "scale" : "1x"
+      "filename" : "second.pdf"
     }
   ],
   "info" : {
