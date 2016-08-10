@@ -8,6 +8,7 @@
 
 #import "LocalNotificationViewController.h"
 #import "UIViewController+Alerts.h"
+#import "LocalNotification.h"
 
 @import UserNotifications;
 
@@ -31,6 +32,9 @@
         [self showAlertWithMessage:@"Please set Body"];
         return NO;
     }
+    if ([self triggerTimeInterval] < 0.5) {
+        [self showAlertWithMessage:@"Time interval should be greater then 0.5"];
+    }
     return YES;
 }
 
@@ -39,101 +43,79 @@
     if(![self validateInput]) {
         return;
     }
+    LocalNotification *
+    localNotification = [LocalNotification new];
+    localNotification.body     = self.bodyField.text;
+    localNotification.title    = self.titleField.text;
+    localNotification.subtitle = self.subtitleField.text;
     
-    UNMutableNotificationContent *
-    notificationContent = [UNMutableNotificationContent new];
-    notificationContent.title    = self.titleField.text;
-    notificationContent.subtitle = self.subtitleField.text;
-    notificationContent.body     = self.bodyField.text;
-    notificationContent.attachments = [self createSelectedMediaAttachment];
-    notificationContent.sound    = [UNNotificationSound defaultSound];
-//    notificationContent.badge    = @1;
-//    notificationContent.launchImageName = @"LaunchScreenFromNotification"; // ???
-//    notificationContent.threadIdentifier
-//    notificationContent.categoryIdentifier
-//    notificationContent.userInfo = @{@"tag": @1};
+    localNotification.contentIdentifier = @"content-identifier-1"; // otherwise it will be generated
+    
+    NSError * attachmentError = nil;
+    [localNotification addAttachementFromUrl:[self selectedMediaAttachmentUrl]
+                                       error:&attachmentError];
 
-    BOOL shouldRepeat = self.repeatSwitch.on;
-    NSTimeInterval triggerTimeInterval = [self.triggerParameterField.text doubleValue];
-    if (triggerTimeInterval == 0) {
-        [self showAlertWithMessage:@"Time interval should be greater then 0"];
-        return;
+    if (attachmentError) {
+        [self showAlertWithError:attachmentError];
     }
-    
-//    UNLocationNotificationTrigger
-//    UNCalendarNotificationTrigger
-    UNTimeIntervalNotificationTrigger *
-    notificationTrigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:triggerTimeInterval
-                                                                             repeats:shouldRepeat];
-    
-    NSString * contentIdentifier = @"content-identifier-1";
-    
-    UNNotificationRequest *
-    notificationRequest = [UNNotificationRequest requestWithIdentifier:contentIdentifier
-                                                               content:notificationContent
-                                                               trigger:notificationTrigger];
-    
-    [[UNUserNotificationCenter currentNotificationCenter]
-     addNotificationRequest:notificationRequest
-     withCompletionHandler:^(NSError * _Nullable error) {
-        
-         if (error) {
-             [self showAlertWithError:error];
-         }
-     }];
+
+    [localNotification sheduleWithTimeInterval:self.triggerTimeInterval
+                                  shouldRepeat:self.shouldRepeat
+                         withCompletionHandler:^(NSError *error) {
+                             
+                             if (error) {
+                                 [self showAlertWithError:error];
+                             }
+                         }];
 }
 
-- (NSArray<UNNotificationAttachment*> *)createSelectedMediaAttachment
+#pragma mark - Helpers
+
+- (BOOL) shouldRepeat {
+    return self.repeatSwitch.on;
+}
+
+- (NSTimeInterval) triggerTimeInterval {
+    return [self.triggerParameterField.text doubleValue];
+}
+
+- (NSURL*) selectedMediaAttachmentUrl
 {
     switch (self.mediaAttachmentSegmentControl.selectedSegmentIndex) {
         case 0:/*None*/
             return nil;
-
+            
         case 1:/*JPG*/
-            return [self createMediaAttachmentsWithId:@"attachment-1" ofType:@"jpg"];
-        
+            return [self createMediaAttachmentUrlForFilename:@"attachment-1" ofType:@"jpg"];
+            
         case 2:/*GIF*/
-            return [self createMediaAttachmentsWithId:@"attachment-2" ofType:@"gif"];
- 
+            return [self createMediaAttachmentUrlForFilename:@"attachment-2" ofType:@"gif"];
+            
         case 3:/*Video*/
-            return [self createMediaAttachmentsWithId:@"attachment-3" ofType:@"mp4"];
-        
+            return [self createMediaAttachmentUrlForFilename:@"attachment-3" ofType:@"mp4"];
+            
         case 4:/*Audio*/
-            return [self createMediaAttachmentsWithId:@"attachment-4" ofType:@"m4a"];
+            return [self createMediaAttachmentUrlForFilename:@"attachment-4" ofType:@"m4a"];
             
         default:
             return nil;
     }
 }
 
-- (NSArray<UNNotificationAttachment*> *)createMediaAttachmentsWithId:(NSString*)attachmentId
-                                                              ofType:(NSString*)type
+- (NSURL *)createMediaAttachmentUrlForFilename:(NSString*)filename
+                                        ofType:(NSString*)type
 {
-    NSURL * attachmentURL = [[NSBundle mainBundle] URLForResource:attachmentId
-                                                    withExtension:type];
-    NSError * error = nil;
-    UNNotificationAttachment * notifcationAttachment = [UNNotificationAttachment
-                                                        attachmentWithIdentifier:attachmentId
-                                                        URL:attachmentURL
-                                                        options:nil
-                                                        error:&error];
-    if (error) {
-        [self showAlertWithError:error];
-    }
-    if (notifcationAttachment) {
-        return @[notifcationAttachment];
-    }
-    return nil;
+    return [[NSBundle mainBundle] URLForResource:filename
+                                   withExtension:type];
 }
 
+#pragma mark - View Stuff
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self setupTimeIntervalPicker];
+    //    [self setupTimeIntervalPicker];
 }
-
-#pragma mark
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492968D81D5BCE4500A63D55 /* LocalNotificationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 492968D71D5BCE4500A63D55 /* LocalNotificationTests.m */; };
+		492968D91D5BCE7800A63D55 /* attachment-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4931865C1D562959002AC11C /* attachment-1.jpg */; };
 		493185E31D55FE11002AC11C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185E21D55FE11002AC11C /* main.m */; };
 		493185E61D55FE11002AC11C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185E51D55FE11002AC11C /* AppDelegate.m */; };
 		493185E91D55FE11002AC11C /* StatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185E81D55FE11002AC11C /* StatusViewController.m */; };
@@ -14,7 +16,6 @@
 		493185EF1D55FE11002AC11C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493185ED1D55FE11002AC11C /* Main.storyboard */; };
 		493185F11D55FE11002AC11C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493185F01D55FE11002AC11C /* Assets.xcassets */; };
 		493185F41D55FE11002AC11C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493185F21D55FE11002AC11C /* LaunchScreen.storyboard */; };
-		493185FF1D55FE11002AC11C /* TryUserNotificationsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 493185FE1D55FE11002AC11C /* TryUserNotificationsTests.m */; };
 		4931860C1D560098002AC11C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931860B1D560098002AC11C /* SettingsViewController.m */; };
 		493186431D560584002AC11C /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493186421D560584002AC11C /* UserNotifications.framework */; };
 		493186451D560589002AC11C /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493186441D560589002AC11C /* UserNotificationsUI.framework */; };
@@ -26,6 +27,8 @@
 		493186651D5636D4002AC11C /* attachment-3.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 493186641D5636D4002AC11C /* attachment-3.mp4 */; };
 		493186691D563908002AC11C /* attachment-4.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 493186681D563908002AC11C /* attachment-4.m4a */; };
 		4931866B1D563A5E002AC11C /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4931866A1D563A5E002AC11C /* readme.txt */; };
+		493186701D56A024002AC11C /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931866F1D56A024002AC11C /* LocalNotification.m */; };
+		493186711D56A024002AC11C /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931866F1D56A024002AC11C /* LocalNotification.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		492968D71D5BCE4500A63D55 /* LocalNotificationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationTests.m; sourceTree = "<group>"; };
 		493185DE1D55FE11002AC11C /* TryUserNotifications.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TryUserNotifications.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		493185E21D55FE11002AC11C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		493185E41D55FE11002AC11C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,7 +77,6 @@
 		493185F31D55FE11002AC11C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		493185F51D55FE11002AC11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493185FA1D55FE11002AC11C /* TryUserNotificationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TryUserNotificationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		493185FE1D55FE11002AC11C /* TryUserNotificationsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TryUserNotificationsTests.m; sourceTree = "<group>"; };
 		493186001D55FE11002AC11C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4931860A1D560098002AC11C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		4931860B1D560098002AC11C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 		493186681D563908002AC11C /* attachment-4.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "attachment-4.m4a"; sourceTree = "<group>"; };
 		4931866A1D563A5E002AC11C /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		4931866C1D5653C6002AC11C /* TryUserNotifications.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TryUserNotifications.entitlements; sourceTree = "<group>"; };
+		4931866E1D56A024002AC11C /* LocalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotification.h; sourceTree = "<group>"; };
+		4931866F1D56A024002AC11C /* LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotification.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				4931866C1D5653C6002AC11C /* TryUserNotifications.entitlements */,
+				4931866D1D569FF1002AC11C /* Helpers */,
 				493186571D560B3B002AC11C /* Categories */,
 				493186091D560078002AC11C /* Controllers */,
 				493185E41D55FE11002AC11C /* AppDelegate.h */,
@@ -170,8 +176,8 @@
 		493185FD1D55FE11002AC11C /* TryUserNotificationsTests */ = {
 			isa = PBXGroup;
 			children = (
-				493185FE1D55FE11002AC11C /* TryUserNotificationsTests.m */,
 				493186001D55FE11002AC11C /* Info.plist */,
+				492968D71D5BCE4500A63D55 /* LocalNotificationTests.m */,
 			);
 			path = TryUserNotificationsTests;
 			sourceTree = "<group>";
@@ -227,6 +233,15 @@
 				4931866A1D563A5E002AC11C /* readme.txt */,
 			);
 			path = Attachments;
+			sourceTree = "<group>";
+		};
+		4931866D1D569FF1002AC11C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4931866E1D56A024002AC11C /* LocalNotification.h */,
+				4931866F1D56A024002AC11C /* LocalNotification.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +376,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				492968D91D5BCE7800A63D55 /* attachment-1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +399,7 @@
 				4931860C1D560098002AC11C /* SettingsViewController.m in Sources */,
 				4931865A1D560B5C002AC11C /* UIViewController+Alerts.m in Sources */,
 				493185E91D55FE11002AC11C /* StatusViewController.m in Sources */,
+				493186701D56A024002AC11C /* LocalNotification.m in Sources */,
 				493185E31D55FE11002AC11C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,7 +408,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493185FF1D55FE11002AC11C /* TryUserNotificationsTests.m in Sources */,
+				492968D81D5BCE4500A63D55 /* LocalNotificationTests.m in Sources */,
+				493186711D56A024002AC11C /* LocalNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,6 +633,7 @@
 				493186051D55FE11002AC11C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		493186061D55FE11002AC11C /* Build configuration list for PBXNativeTarget "TryUserNotificationsTests" */ = {
 			isa = XCConfigurationList;
@@ -623,6 +642,7 @@
 				493186081D55FE11002AC11C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		493186531D5605DD002AC11C /* Build configuration list for PBXNativeTarget "ServiceExtension" */ = {
 			isa = XCConfigurationList;
@@ -631,6 +651,7 @@
 				493186551D5605DD002AC11C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
