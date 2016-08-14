@@ -13,41 +13,9 @@
 @import UserNotifications;
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate>
-
 @end
 
 @implementation AppDelegate
-
-- (void) setupCustomNotificationActions {
- 
-    [[UNUserNotificationCenter currentNotificationCenter] getNotificationCategoriesWithCompletionHandler:^(NSSet<UNNotificationCategory *> * _Nonnull categories) {
-        
-        NSLog(@"Notification Categories: %@", categories);
-    }];
-    
-//    UNNotificationAction * action = [UNNotificationAction actionWithIdentifier:@"reply"
-//                                                                         title:@"Reply"
-//                                                                       options:0]; /*UNNotificationActionOptionAuthenticationRequired,UNNotificationActionOptionDestructive,UNNotificationActionOptionForeground*/
-    
-    UNNotificationCategory * category = [UNNotificationCategory categoryWithIdentifier:kCustomNotificationCategoryForDismis
-                                                                               actions:@[]
-                                                                     intentIdentifiers:@[]
-                                                                               options:UNNotificationCategoryOptionCustomDismissAction]; // UNNotificationCategoryOptionNone, UNNotificationCategoryOptionCustomDismissAction
-
-    NSSet * categorySet = [NSSet setWithArray:@[category]];
-    
-    [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:categorySet];
-}
-
-- (void) setupUserNotificationCenterDelegate {
-    // The delegate can only be set from an application
-    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
-}
-
-- (void) selectDefaultTab {
-    // temporary hack
-    ((UITabBarController*)self.window.rootViewController).selectedIndex = 1;
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -74,9 +42,7 @@
 }
 
 // Not called, as we have fetchCompletionHandler version
-//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-//{
-//}
+//- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {}
 
 // For Silent Pushes
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
@@ -86,7 +52,7 @@
     completionHandler(UIBackgroundFetchResultNoData);
 }
 
-#pragma mark -
+#pragma mark - UNUserNotificationCenterDelegate
 
 // The method will be called on the delegate only if the application is in the foreground.
 // If the method is not implemented or the handler is not called in a timely manner then the notification will not be presented.
@@ -95,7 +61,7 @@
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
        willPresentNotification:(UNNotification *)notification
          withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler {
- 
+    
     NSLog(@"Notification: %@", notification.request.content.userInfo);
     
     completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert);
@@ -108,11 +74,33 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void(^)())completionHandler
 {
     [self handleNotificationResponse:response];
- 
+    
     completionHandler();
 }
 
-#pragma mark - Action Identifier
+#pragma mark - Setup
+
+- (void) setupCustomNotificationActions // TODO: provide more control and move it to Settings screen
+{
+    UNNotificationCategory * dismisCategory = [UNNotificationCategory categoryWithIdentifier:kCustomNotificationCategoryForDismis
+                                                                                     actions:@[]
+                                                                           intentIdentifiers:@[]
+                                                                                     options:UNNotificationCategoryOptionCustomDismissAction]; // UNNotificationCategoryOptionNone, UNNotificationCategoryOptionCustomDismissAction
+    NSSet * categorySet = [NSSet setWithArray:@[dismisCategory]];
+    [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:categorySet];
+}
+
+- (void) setupUserNotificationCenterDelegate {
+    // The delegate can only be set from an application
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+}
+
+- (void) selectDefaultTab {
+    // temporary hack
+    ((UITabBarController*)self.window.rootViewController).selectedIndex = 1;
+}
+
+#pragma mark - Handlers
 
 - (void) handleNotificationResponse:(UNNotificationResponse*)notificationResponse
 {
@@ -134,6 +122,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
     
     // else we have own custom identifier
 }
+
+#pragma mark - Helpers
 
 - (void) sheduleLocalNotificationWhat
 {
