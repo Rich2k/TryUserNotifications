@@ -9,10 +9,12 @@ end
 token = ARGV.first
 puts "Sending Push to Token: #{token}"
 
+certificatePath = File.join(File.dirname(__FILE__), "../Secret/dev-push.pem")
+
 # Environment variables are automatically read, or can be overridden by any specified options. You can also
 # conveniently use `Houston::Client.development` or `Houston::Client.production`.
 APN = Houston::Client.development
-APN.certificate = File.read("../Secret/dev-push.pem")
+APN.certificate = File.read(certificatePath)
 
 # Create a notification that alerts a message to the user, plays a sound, and sets the badge on the app
 notification = Houston::Notification.new(device: token)
