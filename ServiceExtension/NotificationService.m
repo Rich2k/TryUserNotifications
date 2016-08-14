@@ -7,30 +7,64 @@
 //
 
 #import "NotificationService.h"
+#import "MediaAttachmentDownloader.h"
 
 @interface NotificationService ()
 
 @property (nonatomic, strong) void (^contentHandler)(UNNotificationContent *contentToDeliver);
-@property (nonatomic, strong) UNMutableNotificationContent *bestAttemptContent;
-
+@property (nonatomic, strong) UNMutableNotificationContent *mutableContent;
+@property (nonatomic, strong) MediaAttachmentDownloader *attachmentDownloader;
 @end
 
 @implementation NotificationService
 
 - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent * _Nonnull))contentHandler {
     self.contentHandler = contentHandler;
-    self.bestAttemptContent = [request.content mutableCopy];
+    self.mutableContent = [request.content mutableCopy];
     
-    // Modify the notification content here...
-    self.bestAttemptContent.title = [NSString stringWithFormat:@"%@ [modified]", self.bestAttemptContent.title];
-    
-    self.contentHandler(self.bestAttemptContent);
+    [self.attachmentDownloader
+     downloadAttchmentWithUrl:self.attachmentUrl
+     completionHandler:^(UNNotificationAttachment *attachment, NSError *error) {
+         
+         if (attachment) {
+             self.mutableContent.attachments = @[attachment];
+         }
+         if (error) {
+             // we will show error in notification
+             self.mutableContent.title = [NSString stringWithFormat:@"[error] %@", self.mutableContent.title];
+             self.mutableContent.body  = error.localizedDescription;
+             self.mutableContent.subtitle = @"⛔️";
+         }
+         
+         self.contentHandler(self.mutableContent);
+     }];
+
+    /* self.contentHandler(nil); // this does not change anything and notification delivered as is */
 }
 
 - (void)serviceExtensionTimeWillExpire {
     // Called just before the extension will be terminated by the system.
     // Use this as an opportunity to deliver your "best attempt" at modified content, otherwise the original push payload will be used.
-    self.contentHandler(self.bestAttemptContent);
+    
+    // cancel download
+    [self.attachmentDownloader cancel];
+    
+    // update content
+    self.mutableContent.title = [NSString stringWithFormat:@"[expired] %@", self.mutableContent.title];
+    
+    // deliver
+    self.contentHandler(self.mutableContent);
+}
+
+- (MediaAttachmentDownloader*) attachmentDownloader {
+    if(!_attachmentDownloader) {
+        _attachmentDownloader = [MediaAttachmentDownloader new];
+    }
+    return _attachmentDownloader;
+}
+
+- (NSURL*) attachmentUrl {
+    return [NSURL URLWithString:self.mutableContent.userInfo[@"image"]];
 }
 
 @end
