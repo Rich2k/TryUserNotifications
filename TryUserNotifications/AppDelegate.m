@@ -82,11 +82,16 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 - (void) setupCustomNotificationActions // TODO: provide more control and move it to Settings screen
 {
+    UNNotificationCategory * customUICategory = [UNNotificationCategory categoryWithIdentifier:kCustomNotificationCategoryForCustomUI
+                                                                                     actions:@[]
+                                                                           intentIdentifiers:@[]
+                                                                                     options:UNNotificationCategoryOptionCustomDismissAction]; // UNNotificationCategoryOptionNone, UNNotificationCategoryOptionCustomDismissAction
+    
     UNNotificationCategory * dismisCategory = [UNNotificationCategory categoryWithIdentifier:kCustomNotificationCategoryForDismis
                                                                                      actions:@[]
                                                                            intentIdentifiers:@[]
                                                                                      options:UNNotificationCategoryOptionCustomDismissAction]; // UNNotificationCategoryOptionNone, UNNotificationCategoryOptionCustomDismissAction
-    NSSet * categorySet = [NSSet setWithArray:@[dismisCategory]];
+    NSSet * categorySet = [NSSet setWithArray:@[dismisCategory, customUICategory]];
     [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:categorySet];
 }
 

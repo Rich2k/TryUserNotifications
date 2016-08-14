@@ -10,5 +10,7 @@
 #define Constants_h
 
 extern NSString * const kCustomNotificationCategoryForDismis;
+extern NSString * const kCustomNotificationCategoryForCustomUI;
+
 
 #endif /* Constants_h */

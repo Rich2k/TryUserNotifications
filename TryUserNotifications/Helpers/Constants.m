@@ -8,4 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-NSString * const kCustomNotificationCategoryForDismis = @"dismis";
+NSString * const kCustomNotificationCategoryForDismis   = @"dismis";
+NSString * const kCustomNotificationCategoryForCustomUI = @"custom-ui";

@@ -24,6 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch * repeatSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch * enableDismisActionSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch * enableCustomUICategorySwitch;
 
 @end
 
@@ -81,6 +82,9 @@
 
 - (NSString*) customCategoryIdentifier
 {
+    if (self.enableCustomUICategorySwitch.on) {
+        return kCustomNotificationCategoryForCustomUI;
+    }
     if (self.enableDismisActionSwitch.on) {
         return kCustomNotificationCategoryForDismis;
     }
