@@ -24,16 +24,18 @@
     notificationContent.body     = self.body;
     notificationContent.sound    = [UNNotificationSound defaultSound];
     
+    if (self.categoryIdentifier) {
+        notificationContent.categoryIdentifier = self.categoryIdentifier;
+    }
+    
     if (_attachments) {  
         notificationContent.attachments = [self.attachments copy];
     }
 
     // TODO: to be supported:
-    
     //    notificationContent.badge    = @1;
     //    notificationContent.launchImageName = @"LaunchScreenFromNotification"; // ???
     //    notificationContent.threadIdentifier
-    //    notificationContent.categoryIdentifier
     //    notificationContent.userInfo = @{@"tag": @1};
     
     return notificationContent;

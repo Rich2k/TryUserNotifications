@@ -26,7 +26,7 @@
     
     UNNotificationContent * content = [localNotification createNotificationContent];
     
-    XCTAssertEqual(@"text", content.title);
+    XCTAssertEqualObjects(@"text", content.title);
 }
 
 - (void)testAddAttachmentBody {
@@ -36,7 +36,7 @@
     
     UNNotificationContent * content = [localNotification createNotificationContent];
     
-    XCTAssertEqual(@"text", content.body);
+    XCTAssertEqualObjects(@"text", content.body);
 }
 
 - (void)testAddAttachmentSubtitle {
@@ -46,8 +46,29 @@
     
     UNNotificationContent * content = [localNotification createNotificationContent];
     
-    XCTAssertEqual(@"text", content.subtitle);
+    XCTAssertEqualObjects(@"text", content.subtitle);
 }
+
+- (void)testCategoryIdentifier {
+    LocalNotification *
+    localNotification = [LocalNotification new];
+    localNotification.categoryIdentifier = @"id";
+    
+    UNNotificationContent * content = [localNotification createNotificationContent];
+    
+    XCTAssertEqualObjects(@"id", content.categoryIdentifier);
+}
+
+- (void)testCategoryIdentifierNil {
+    LocalNotification *
+    localNotification = [LocalNotification new];
+    localNotification.categoryIdentifier = nil;
+    
+    UNNotificationContent * content = [localNotification createNotificationContent];
+    
+    XCTAssertEqualObjects(@"", content.categoryIdentifier);
+}
+
 
 - (void)testAddAttachmentNil;
 {

@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString * title;
 @property (nonatomic, strong) NSString * subtitle;
 @property (nonatomic, strong) NSString * contentIdentifier;
+@property (nonatomic, strong) NSString * categoryIdentifier;
 
 - (void) addAttachementFromUrl:(NSURL*)attachmentUrl
                          error:(NSError**)error;
