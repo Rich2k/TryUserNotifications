@@ -203,12 +203,12 @@
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5ia-2A-VvB">
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="randomize content identifier:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykN-4n-dzk">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dismis category action" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykN-4n-dzk">
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j08-H5-Jwv"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j08-H5-Jwv"/>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="j4G-kq-CLm">
@@ -265,6 +265,7 @@
                     <tabBarItem key="tabBarItem" title="Local Notifications" image="second" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="bodyField" destination="ych-0K-Luo" id="14d-6W-5Ju"/>
+                        <outlet property="enableDismisActionSwitch" destination="j08-H5-Jwv" id="se9-F6-ytq"/>
                         <outlet property="mediaAttachmentSegmentControl" destination="eMv-3H-Bta" id="qxd-NU-PUJ"/>
                         <outlet property="repeatSwitch" destination="nU9-LO-3TP" id="tmV-XH-m8k"/>
                         <outlet property="subtitleField" destination="rrP-ep-y2T" id="dL2-No-MNG"/>

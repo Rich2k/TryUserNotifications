@@ -30,6 +30,9 @@
 		493186701D56A024002AC11C /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931866F1D56A024002AC11C /* LocalNotification.m */; };
 		493186711D56A024002AC11C /* LocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4931866F1D56A024002AC11C /* LocalNotification.m */; };
 		4980D2C41D60AD0B0012B650 /* MediaAttachmentDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4980D2C31D60AD0B0012B650 /* MediaAttachmentDownloader.m */; };
+		4980D2C71D60C6FC0012B650 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4980D2C61D60C6FC0012B650 /* Constants.m */; };
+		4980D2C81D60C6FC0012B650 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4980D2C61D60C6FC0012B650 /* Constants.m */; };
+		4980D2C91D60C6FC0012B650 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4980D2C61D60C6FC0012B650 /* Constants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +102,8 @@
 		4931866F1D56A024002AC11C /* LocalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotification.m; sourceTree = "<group>"; };
 		4980D2C21D60AD0B0012B650 /* MediaAttachmentDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaAttachmentDownloader.h; sourceTree = "<group>"; };
 		4980D2C31D60AD0B0012B650 /* MediaAttachmentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaAttachmentDownloader.m; sourceTree = "<group>"; };
+		4980D2C61D60C6FC0012B650 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		4980D2CA1D60C7140012B650 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				4931866C1D5653C6002AC11C /* TryUserNotifications.entitlements */,
-				4931866D1D569FF1002AC11C /* Helpers */,
+				4931866D1D569FF1002AC11C /* Common */,
 				493186571D560B3B002AC11C /* Categories */,
 				493186091D560078002AC11C /* Controllers */,
 				493185E41D55FE11002AC11C /* AppDelegate.h */,
@@ -240,12 +245,15 @@
 			path = Attachments;
 			sourceTree = "<group>";
 		};
-		4931866D1D569FF1002AC11C /* Helpers */ = {
+		4931866D1D569FF1002AC11C /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				4931866E1D56A024002AC11C /* LocalNotification.h */,
 				4931866F1D56A024002AC11C /* LocalNotification.m */,
+				4980D2C61D60C6FC0012B650 /* Constants.m */,
+				4980D2CA1D60C7140012B650 /* Constants.h */,
 			);
+			name = Common;
 			path = Helpers;
 			sourceTree = "<group>";
 		};
@@ -402,6 +410,7 @@
 				493185EC1D55FE11002AC11C /* LocalNotificationViewController.m in Sources */,
 				493185E61D55FE11002AC11C /* AppDelegate.m in Sources */,
 				4931860C1D560098002AC11C /* SettingsViewController.m in Sources */,
+				4980D2C71D60C6FC0012B650 /* Constants.m in Sources */,
 				4931865A1D560B5C002AC11C /* UIViewController+Alerts.m in Sources */,
 				493185E91D55FE11002AC11C /* StatusViewController.m in Sources */,
 				493186701D56A024002AC11C /* LocalNotification.m in Sources */,
@@ -415,6 +424,7 @@
 			files = (
 				492968D81D5BCE4500A63D55 /* LocalNotificationTests.m in Sources */,
 				493186711D56A024002AC11C /* LocalNotification.m in Sources */,
+				4980D2C81D60C6FC0012B650 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +434,7 @@
 			files = (
 				4980D2C41D60AD0B0012B650 /* MediaAttachmentDownloader.m in Sources */,
 				4931864E1D5605DD002AC11C /* NotificationService.m in Sources */,
+				4980D2C91D60C6FC0012B650 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

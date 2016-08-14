@@ -24,7 +24,7 @@ notification.sound = "default"
 # notification.category = "INVITE_CATEGORY"
 
 # Image Data
-notification.custom_data = { 'aps' => { 'mutable-content' => '1' },
+notification.custom_data = { 'aps' => { 'mutable-content' => '1', 'category' => 'dismis' },
 'image' => "https://dl.dropbox.com/s/u1amvwvdf3nhxnp/thailand.jpg" }
 
 puts(notification.payload)

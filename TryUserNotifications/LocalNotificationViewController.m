@@ -9,6 +9,7 @@
 #import "LocalNotificationViewController.h"
 #import "UIViewController+Alerts.h"
 #import "LocalNotification.h"
+#import "Constants.h"
 
 @import UserNotifications;
 
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *triggerSegmentControl;
 
 @property (weak, nonatomic) IBOutlet UISwitch * repeatSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch * enableDismisActionSwitch;
 
 @end
 
@@ -49,7 +51,9 @@
     localNotification.title    = self.titleField.text;
     localNotification.subtitle = self.subtitleField.text;
     
-    localNotification.contentIdentifier = @"content-identifier-1"; // otherwise it will be generated
+    localNotification.contentIdentifier  = @"content-identifier-1"; // otherwise it will be generated
+    localNotification.categoryIdentifier = [self customCategoryIdentifier];
+    
     
     NSError * attachmentError = nil;
     [localNotification addAttachementFromUrl:[self selectedMediaAttachmentUrl]
@@ -73,6 +77,14 @@
 
 - (BOOL) shouldRepeat {
     return self.repeatSwitch.on;
+}
+
+- (NSString*) customCategoryIdentifier
+{
+    if (self.enableDismisActionSwitch.on) {
+        return kCustomNotificationCategoryForDismis;
+    }
+    return nil;
 }
 
 - (NSTimeInterval) triggerTimeInterval {
