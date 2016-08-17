@@ -7,9 +7,11 @@
 //
 
 #import "LocalNotificationViewController.h"
+
 #import "UIViewController+Alerts.h"
 #import "LocalNotification.h"
 #import "Constants.h"
+#import "Attachments.h"
 
 @import UserNotifications;
 
@@ -76,6 +78,12 @@
 
 #pragma mark - Helpers
 
+- (NSURL*) selectedMediaAttachmentUrl
+{
+    NSInteger index = self.mediaAttachmentSegmentControl.selectedSegmentIndex;
+    return [Attachments mediaAttachmentUrlAtIndex:index];
+}
+
 - (BOOL) shouldRepeat {
     return self.repeatSwitch.on;
 }
@@ -93,36 +101,6 @@
 
 - (NSTimeInterval) triggerTimeInterval {
     return [self.triggerParameterField.text doubleValue];
-}
-
-- (NSURL*) selectedMediaAttachmentUrl
-{
-    switch (self.mediaAttachmentSegmentControl.selectedSegmentIndex) {
-        case 0:/*None*/
-            return nil;
-            
-        case 1:/*JPG*/
-            return [self createMediaAttachmentUrlForFilename:@"attachment-1" ofType:@"jpg"];
-            
-        case 2:/*GIF*/
-            return [self createMediaAttachmentUrlForFilename:@"attachment-2" ofType:@"gif"];
-            
-        case 3:/*Video*/
-            return [self createMediaAttachmentUrlForFilename:@"attachment-3" ofType:@"mp4"];
-            
-        case 4:/*Audio*/
-            return [self createMediaAttachmentUrlForFilename:@"attachment-4" ofType:@"m4a"];
-            
-        default:
-            return nil;
-    }
-}
-
-- (NSURL *)createMediaAttachmentUrlForFilename:(NSString*)filename
-                                        ofType:(NSString*)type
-{
-    return [[NSBundle mainBundle] URLForResource:filename
-                                   withExtension:type];
 }
 
 #pragma mark - View Stuff

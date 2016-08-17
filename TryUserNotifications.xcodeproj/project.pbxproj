@@ -38,6 +38,8 @@
 		4980D2C71D60C6FC0012B650 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4980D2C61D60C6FC0012B650 /* Constants.m */; };
 		4980D2C81D60C6FC0012B650 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4980D2C61D60C6FC0012B650 /* Constants.m */; };
 		4980D2C91D60C6FC0012B650 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4980D2C61D60C6FC0012B650 /* Constants.m */; };
+		49CB3F151D650E6100F8D2BE /* Attachments.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB3F141D650E6100F8D2BE /* Attachments.m */; };
+		49CB3F161D650E6100F8D2BE /* Attachments.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB3F141D650E6100F8D2BE /* Attachments.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,8 @@
 		4980D2C31D60AD0B0012B650 /* MediaAttachmentDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaAttachmentDownloader.m; sourceTree = "<group>"; };
 		4980D2C61D60C6FC0012B650 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		4980D2CA1D60C7140012B650 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		49CB3F131D650E6100F8D2BE /* Attachments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attachments.h; sourceTree = "<group>"; };
+		49CB3F141D650E6100F8D2BE /* Attachments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attachments.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +285,8 @@
 				493186641D5636D4002AC11C /* attachment-3.mp4 */,
 				493186681D563908002AC11C /* attachment-4.m4a */,
 				4931866A1D563A5E002AC11C /* readme.txt */,
+				49CB3F131D650E6100F8D2BE /* Attachments.h */,
+				49CB3F141D650E6100F8D2BE /* Attachments.m */,
 			);
 			path = Attachments;
 			sourceTree = "<group>";
@@ -490,6 +496,7 @@
 				493185EC1D55FE11002AC11C /* LocalNotificationViewController.m in Sources */,
 				493185E61D55FE11002AC11C /* AppDelegate.m in Sources */,
 				4931860C1D560098002AC11C /* SettingsViewController.m in Sources */,
+				49CB3F151D650E6100F8D2BE /* Attachments.m in Sources */,
 				4980D2C71D60C6FC0012B650 /* Constants.m in Sources */,
 				4931865A1D560B5C002AC11C /* UIViewController+Alerts.m in Sources */,
 				493185E91D55FE11002AC11C /* StatusViewController.m in Sources */,
@@ -505,6 +512,7 @@
 				492968D81D5BCE4500A63D55 /* LocalNotificationTests.m in Sources */,
 				493186711D56A024002AC11C /* LocalNotification.m in Sources */,
 				4980D2C81D60C6FC0012B650 /* Constants.m in Sources */,
+				49CB3F161D650E6100F8D2BE /* Attachments.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,6 +772,7 @@
 				4917124E1D60D04400F1A8E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		493185D91D55FE11002AC11C /* Build configuration list for PBXProject "TryUserNotifications" */ = {
 			isa = XCConfigurationList;
